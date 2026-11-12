@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f8f5">
+  <meta name="description" content="Prototipe akademik prediksi peluang pembatalan reservasi hotel.">
+  <title>Staywise — Prediksi Reservasi Hotel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Staywise beranda">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M5 25V13.5L16 5l11 8.5V25h-8v-8h-6v8H5Z"/><path d="M3 27h26"/></svg></span>
+        <span>staywise<span class="brand-dot">.</span><small>INSIGHT RESERVASI</small></span>
+      </a>
+      <nav class="top-nav" aria-label="Navigasi utama"><a class="active" href="#predictor">Prediksi</a><a href="#cara-kerja">Cara kerja</a></nav>
+      <div class="api-status"><span class="status-pulse" id="status-dot"></span><span id="status-text">Memeriksa model</span></div>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="eyebrow-icon">✳</span> HOTEL BOOKING INTELLIGENCE <span class="eyebrow-line"></span></div>
+          <h1 id="hero-title">Kenali risiko.<br><em>Rencanakan lebih baik.</em></h1>
+          <p>Perkirakan kemungkinan reservasi hotel dibatalkan dari detail pemesanan dan profil tamu.</p>
+          <a class="hero-cta" href="#predictor">Mulai prediksi <span aria-hidden="true">↓</span></a>
+          <div class="hero-proof"><span class="proof-icon">⌁</span><span>Didukung analisis machine learning</span><span class="proof-divider"></span><span>Prototipe akademik</span></div>
+        </div>
+        <div class="hero-image" role="img" aria-label="Suasana hotel tepi pantai saat senja">
+          <div class="image-overlay"></div>
+          <div class="image-caption"><span class="caption-pin">⌖</span><div><strong>Lebih siap menyambut setiap tamu.</strong><small>Wawasan reservasi untuk perencanaan yang lebih cermat.</small></div></div>
+          <div class="image-index"><span>01</span><span class="index-dash"></span><span>03</span></div>
+        </div>
+      </section>
+
+      <section class="predict-section" id="predictor">
+        <div class="section-heading"><div><div class="eyebrow section-eyebrow">PREDIKSI RESERVASI <span class="section-dot"></span></div><h2>Masukkan detail pemesanan</h2><p>Isi informasi reservasi untuk mendapatkan estimasi risiko pembatalan.</p></div><div class="required-note"><span>*</span> Wajib diisi</div></div>
+        <div class="workspace">
+          <form id="booking-form" class="booking-form">
+            <div class="form-block">
+              <div class="block-title"><span class="block-number">01</span><div><h3>Waktu & lama menginap</h3><p>Kapan reservasi dibuat dan berapa lama tamu tinggal?</p></div></div>
+              <div class="fields-grid">
+                <label class="field"><span>Jarak hari pemesanan <i>*</i></span><div class="input-wrap"><input name="lead_time" type="number" min="0" max="1000" value="45" required><small>hari</small></div><small class="helper">Jarak dari tanggal pesan ke kedatangan</small></label>
+                <label class="field"><span>Bulan kedatangan <i>*</i></span><select name="arrival_date_month" required><option>January</option><option>February</option><option>March</option><option>April</option><option selected>May</option><option>June</option><option>July</option><option>August</option><option>September</option><option>October</option><option>November</option><option>December</option></select></label>
+                <label class="field"><span>Minggu ke- <i>*</i></span><input name="arrival_date_week_number" type="number" min="1" max="53" value="21" required></label>
+                <label class="field"><span>Tanggal kedatangan <i>*</i></span><input name="arrival_date_day_of_month" type="number" min="1" max="31" value="18" required></label>
+                <label class="field"><span>Malam akhir pekan <i>*</i></span><input name="stays_in_weekend_nights" type="number" min="0" max="60" value="1" required></label>
+                <label class="field"><span>Malam hari kerja <i>*</i></span><input name="stays_in_week_nights" type="number" min="0" max="100" value="3" required></label>
+              </div>
+            </div>
+
+            <div class="form-block">
+              <div class="block-title"><span class="block-number">02</span><div><h3>Profil tamu</h3><p>Jumlah tamu dan riwayat pemesanan sebelumnya.</p></div></div>
+              <div class="fields-grid">
+                <label class="field"><span>Dewasa <i>*</i></span><input name="adults" type="number" min="0" max="20" value="2" required></label>
+                <label class="field"><span>Anak-anak <i>*</i></span><input name="children" type="number" min="0" max="20" step="0.5" value="0" required></label>
+                <label class="field"><span>Negara asal <i>*</i></span><select name="country" required><option value="PRT" selected>Portugal (PRT)</option><option value="GBR">Inggris (GBR)</option><option value="FRA">Prancis (FRA)</option><option value="ESP">Spanyol (ESP)</option><option value="DEU">Jerman (DEU)</option><option value="ITA">Italia (ITA)</option><option value="IRL">Irlandia (IRL)</option><option value="NLD">Belanda (NLD)</option><option value="USA">Amerika Serikat (USA)</option><option value="IDN">Indonesia (IDN)</option><option value="UNK">Lainnya</option></select></label>
+                <label class="field"><span>Tamu berulang <i>*</i></span><select name="is_repeated_guest" required><option value="0" selected>Tidak</option><option value="1">Ya</option></select></label>
+                <label class="field"><span>Pembatalan sebelumnya <i>*</i></span><input name="previous_cancellations" type="number" min="0" max="100" value="0" required></label>
+                <label class="field"><span>Perubahan pemesanan <i>*</i></span><input name="booking_changes" type="number" min="0" max="100" value="0" required></label>
+              </div>
+            </div>
+
+            <div class="form-block last-block">
+              <div class="block-title"><span class="block-number">03</span><div><h3>Preferensi & pembayaran</h3><p>Rincian kanal pemesanan dan kebutuhan tamu.</p></div></div>
+              <div class="fields-grid">
+                <label class="field"><span>Paket makan <i>*</i></span><select name="meal" required><option value="BB" selected>Sarapan (BB)</option><option value="HB">Setengah papan (HB)</option><option value="FB">Penuh (FB)</option><option value="SC">Tanpa makan (SC)</option><option value="Undefined">Belum ditentukan</option></select></label>
+                <label class="field"><span>Segmen pasar <i>*</i></span><select name="market_segment" required><option selected>Online TA</option><option>Offline TA/TO</option><option>Direct</option><option>Groups</option><option>Corporate</option><option>Complementary</option><option>Aviation</option><option>Undefined</option></select></label>
+                <label class="field"><span>Kanal distribusi <i>*</i></span><select name="distribution_channel" required><option selected>TA/TO</option><option>Direct</option><option>Corporate</option><option>GDS</option><option>Undefined</option></select></label>
+                <label class="field"><span>Jenis deposit <i>*</i></span><select name="deposit_type" required><option selected>No Deposit</option><option>Non Refund</option><option>Refundable</option></select></label>
+                <label class="field"><span>Jenis pelanggan <i>*</i></span><select name="customer_type" required><option selected>Transient</option><option>Transient-Party</option><option>Contract</option><option>Group</option></select></label>
+                <label class="field"><span>Tarif harian rata-rata <i>*</i></span><div class="input-wrap"><span class="prefix">€</span><input name="adr" type="number" min="0" max="10000" step="0.01" value="98.50" required></div></label>
+                <label class="field"><span>Parkir yang dibutuhkan <i>*</i></span><input name="required_car_parking_spaces" type="number" min="0" max="10" value="0" required></label>
+                <label class="field"><span>Permintaan khusus <i>*</i></span><input name="total_of_special_requests" type="number" min="0" max="20" value="1" required></label>
+              </div>
+            </div>
+            <div class="form-actions"><p><span class="lock-icon">◇</span> Data hanya digunakan untuk menghasilkan prediksi.</p><button id="predict-button" type="submit"><span>Hitung peluang pembatalan</span><span class="button-arrow" aria-hidden="true">↗</span></button></div>
+          </form>
+
+          <aside class="result-column" aria-live="polite">
+            <div class="result-card" id="result-card">
+              <div class="result-topline"><span class="result-icon">✳</span><span class="result-label">HASIL ANALISIS</span><span class="result-more">···</span></div>
+              <div class="empty-result" id="empty-result"><div class="empty-orbit"><span>✳</span></div><h3>Hasil Anda akan<br>muncul di sini</h3><p>Lengkapi detail reservasi, lalu mulai prediksi untuk melihat estimasi risiko.</p><div class="empty-rule"></div><div class="mini-note"><span>↗</span> Proses analisis berlangsung beberapa detik</div></div>
+              <div class="prediction-result" id="prediction-result" hidden>
+                <div class="result-kicker">ESTIMASI RISIKO PEMBATALAN</div><div class="risk-value"><strong id="risk-percent">—</strong><span>peluang</span></div>
+                <div class="risk-track"><span id="risk-fill"></span></div><div class="risk-ends"><span>Rendah</span><span>Tinggi</span></div>
+                <div class="verdict" id="verdict"><span id="verdict-icon">✓</span><div><strong id="verdict-title">—</strong><small id="verdict-copy">—</small></div></div>
+                <div class="confidence-row"><span>Keyakinan prediksi</span><strong id="confidence-value">—</strong></div>
+                <p class="result-footnote">Probabilitas ini merupakan estimasi model berdasarkan pola data historis.</p>
+              </div>
+              <div class="error-result" id="error-result" hidden><span class="error-symbol">!</span><strong>Prediksi belum dapat dibuat</strong><p id="error-message">Periksa kembali data dan koneksi API Anda.</p><button type="button" id="retry-button">Coba lagi</button></div>
+            </div>
+            <div class="insight-card"><span class="insight-spark">✳</span><div><strong>Bagaimana membaca hasil?</strong><p>Probabilitas yang lebih tinggi berarti reservasi memiliki karakteristik yang lebih sering terkait dengan pembatalan pada data pelatihan.</p></div></div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="how-section" id="cara-kerja"><div class="how-heading"><div class="eyebrow section-eyebrow">SEDERHANA & INFORMATIF <span class="section-dot"></span></div><h2>Dari detail ke wawasan.</h2><p>Tiga langkah untuk membantu memahami pola reservasi.</p></div><div class="steps"><article class="step-card"><span class="step-index">01</span><div class="step-icon">⌕</div><h3>Lengkapi informasi</h3><p>Masukkan waktu pemesanan, profil tamu, dan preferensi reservasi.</p></article><article class="step-card"><span class="step-index">02</span><div class="step-icon">⌘</div><h3>Model menganalisis</h3><p>Pipeline machine learning memproses atribut untuk mengenali pola.</p></article><article class="step-card"><span class="step-index">03</span><div class="step-icon">↗</div><h3>Pahami estimasi</h3><p>Lihat peluang pembatalan sebagai salah satu bahan pertimbangan.</p></article></div></section>
+
+      <section class="disclaimer"><span class="disclaimer-mark">i</span><div><strong>Disclaimer akademik</strong><p>Sistem ini merupakan prototipe untuk keperluan pembelajaran. Hasil prediksi bersifat estimasi dan bukan penentu keputusan profesional nyata.</p></div><span class="disclaimer-stars">✳</span></section>
+    </main>
+    <footer class="footer"><a class="brand footer-brand" href="#top"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M5 25V13.5L16 5l11 8.5V25h-8v-8h-6v8H5Z"/><path d="M3 27h26"/></svg></span><span>staywise<span class="brand-dot">.</span><small>INSIGHT RESERVASI</small></span></a><span>Proyek Machine Learning · Transportasi & Pariwisata</span><a href="#top" class="back-top">Kembali ke atas ↑</a></footer>
+  </div>
+  <script src="/app.js" defer></script>
+</body>
+</html>
