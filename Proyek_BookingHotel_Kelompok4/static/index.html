@@ -45,10 +45,9 @@
             <div class="form-block">
               <div class="block-title"><span class="block-number">01</span><div><h3>Waktu & lama menginap</h3><p>Kapan reservasi dibuat dan berapa lama tamu tinggal?</p></div></div>
               <div class="fields-grid">
+                <label class="field"><span>Jenis hotel <i>*</i></span><select name="hotel" required><option>City Hotel</option><option selected>Resort Hotel</option></select></label>
                 <label class="field"><span>Jarak hari pemesanan <i>*</i></span><div class="input-wrap"><input name="lead_time" type="number" min="0" max="1000" value="45" required><small>hari</small></div><small class="helper">Jarak dari tanggal pesan ke kedatangan</small></label>
                 <label class="field"><span>Bulan kedatangan <i>*</i></span><select name="arrival_date_month" required><option>January</option><option>February</option><option>March</option><option>April</option><option selected>May</option><option>June</option><option>July</option><option>August</option><option>September</option><option>October</option><option>November</option><option>December</option></select></label>
-                <label class="field"><span>Minggu ke- <i>*</i></span><input name="arrival_date_week_number" type="number" min="1" max="53" value="21" required></label>
-                <label class="field"><span>Tanggal kedatangan <i>*</i></span><input name="arrival_date_day_of_month" type="number" min="1" max="31" value="18" required></label>
                 <label class="field"><span>Malam akhir pekan <i>*</i></span><input name="stays_in_weekend_nights" type="number" min="0" max="60" value="1" required></label>
                 <label class="field"><span>Malam hari kerja <i>*</i></span><input name="stays_in_week_nights" type="number" min="0" max="100" value="3" required></label>
               </div>
@@ -59,10 +58,9 @@
               <div class="fields-grid">
                 <label class="field"><span>Dewasa <i>*</i></span><input name="adults" type="number" min="0" max="20" value="2" required></label>
                 <label class="field"><span>Anak-anak <i>*</i></span><input name="children" type="number" min="0" max="20" step="0.5" value="0" required></label>
-                <label class="field"><span>Negara asal <i>*</i></span><select name="country" required><option value="PRT" selected>Portugal (PRT)</option><option value="GBR">Inggris (GBR)</option><option value="FRA">Prancis (FRA)</option><option value="ESP">Spanyol (ESP)</option><option value="DEU">Jerman (DEU)</option><option value="ITA">Italia (ITA)</option><option value="IRL">Irlandia (IRL)</option><option value="NLD">Belanda (NLD)</option><option value="USA">Amerika Serikat (USA)</option><option value="IDN">Indonesia (IDN)</option><option value="UNK">Lainnya</option></select></label>
+                <label class="field"><span>Bayi <i>*</i></span><input name="babies" type="number" min="0" max="10" value="0" required></label>
                 <label class="field"><span>Tamu berulang <i>*</i></span><select name="is_repeated_guest" required><option value="0" selected>Tidak</option><option value="1">Ya</option></select></label>
                 <label class="field"><span>Pembatalan sebelumnya <i>*</i></span><input name="previous_cancellations" type="number" min="0" max="100" value="0" required></label>
-                <label class="field"><span>Perubahan pemesanan <i>*</i></span><input name="booking_changes" type="number" min="0" max="100" value="0" required></label>
               </div>
             </div>
 
@@ -74,9 +72,6 @@
                 <label class="field"><span>Kanal distribusi <i>*</i></span><select name="distribution_channel" required><option selected>TA/TO</option><option>Direct</option><option>Corporate</option><option>GDS</option><option>Undefined</option></select></label>
                 <label class="field"><span>Jenis deposit <i>*</i></span><select name="deposit_type" required><option selected>No Deposit</option><option>Non Refund</option><option>Refundable</option></select></label>
                 <label class="field"><span>Jenis pelanggan <i>*</i></span><select name="customer_type" required><option selected>Transient</option><option>Transient-Party</option><option>Contract</option><option>Group</option></select></label>
-                <label class="field"><span>Tarif harian rata-rata <i>*</i></span><div class="input-wrap"><span class="prefix">€</span><input name="adr" type="number" min="0" max="10000" step="0.01" value="98.50" required></div></label>
-                <label class="field"><span>Parkir yang dibutuhkan <i>*</i></span><input name="required_car_parking_spaces" type="number" min="0" max="10" value="0" required></label>
-                <label class="field"><span>Permintaan khusus <i>*</i></span><input name="total_of_special_requests" type="number" min="0" max="20" value="1" required></label>
               </div>
             </div>
             <div class="form-actions"><p><span class="lock-icon">◇</span> Data hanya digunakan untuk menghasilkan prediksi.</p><button id="predict-button" type="submit"><span>Hitung peluang pembatalan</span><span class="button-arrow" aria-hidden="true">↗</span></button></div>

@@ -29,10 +29,8 @@ async function updateHealth() {
 function payloadFromForm() {
   const values = Object.fromEntries(new FormData(form).entries());
   const numericFields = [
-    "lead_time", "arrival_date_week_number", "arrival_date_day_of_month",
-    "stays_in_weekend_nights", "stays_in_week_nights", "adults", "children",
-    "is_repeated_guest", "previous_cancellations", "booking_changes", "adr",
-    "required_car_parking_spaces", "total_of_special_requests",
+    "lead_time", "stays_in_weekend_nights", "stays_in_week_nights", "adults",
+    "children", "babies", "is_repeated_guest", "previous_cancellations",
   ];
   for (const name of numericFields) values[name] = Number(values[name]);
   return values;
